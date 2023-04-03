@@ -13,5 +13,8 @@ After cloning run:
 
 ```
 $ pnpm install
+$ cargo install tauri-cli
 $ cargo tauri dev
 ```
+
+
