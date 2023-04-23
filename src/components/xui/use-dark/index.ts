@@ -16,5 +16,5 @@ export const useDark = () => {
 
   const toggleDark = () => setDark(isDark === '1' ? '0' : '1')
 
-  return { isDark, toggleDark }
+  return { isDark: isDark === '1', toggleDark }
 }

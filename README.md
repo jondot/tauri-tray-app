@@ -8,6 +8,10 @@ This template should help get you started developing a Tauri tray app with an ap
 * **Javascript**: typescript, eslint, Vite, React, storybook, Zustand fully configured.
 * **Styles**: tailwind, tw-classed and [shadcn/ui](https://ui.shadcn.com)
 
+![](media/shot1.png)
+![](media/shot2.png)
+![](media/shot4.png)
+![](media/shot3.png)
 ## Quick start
 
 Use [makeme](https://github.com/jondot/makeme) for easy task management and then:
