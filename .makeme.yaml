@@ -1,0 +1,17 @@
+
+tasks:
+  start: 
+    exec: cargo tauri dev
+    emoji: "🕹 "
+
+  ui: 
+    exec: pnpm run dev
+    emoji: "👷‍♀️  "
+
+  sb: 
+    exec: pnpm run storybook
+    emoji: 📚
+
+  install: 
+    exec: pnpm install
+    emoji: 📦
