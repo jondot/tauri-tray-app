@@ -1,6 +1,41 @@
-import { Field, Input, Label, Textarea } from '../input'
+import { classed } from '@tw-classed/react'
+import * as LabelPrimitive from '@radix-ui/react-label'
+import { cn } from '../utils'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 
-export const TextAreaField = ({
+export const Label = classed(
+  LabelPrimitive.Root,
+  'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+  {
+    variants: {
+      v: {
+        normal: 'text-foreground',
+        form: 'text-muted-foreground',
+      },
+      state: {
+        normal: '',
+        err: '!text-red-500',
+      },
+    },
+    defaultVariants: {
+      v: 'normal',
+      state: 'normal',
+    },
+  },
+)
+
+export function Field({
+  className,
+  children,
+}: {
+  className?: string
+  children: React.ReactNode
+}) {
+  return <div className={cn('space-y-1', className)}>{children}</div>
+}
+
+export function TextAreaField({
   name,
   label,
   register,
@@ -14,8 +49,8 @@ export const TextAreaField = ({
   label?: string
   required?: boolean
   className?: string
-}) => (
-  <Field className={className}>
+}) {
+  return <Field className={className}>
     {label && (
       <Label htmlFor={name} v="form" state={errors[name] && 'err'}>
         {label}
@@ -31,9 +66,9 @@ export const TextAreaField = ({
       <p className="text-xs text-red-500">{errors[name]?.message}</p>
     )}
   </Field>
-)
+}
 
-export const InputField = ({
+export function InputField({
   name,
   label,
   register,
@@ -47,8 +82,8 @@ export const InputField = ({
   label?: string
   required?: boolean
   className?: string
-}) => (
-  <Field className={className}>
+}) {
+  return <Field className={className}>
     {label && (
       <Label htmlFor={name} v="form" state={errors[name] && 'err'}>
         {label}
@@ -64,9 +99,9 @@ export const InputField = ({
       <p className="text-xs text-red-500">{errors[name]?.message}</p>
     )}
   </Field>
-)
+}
 
-export const Email = ({
+export function Email({
   name,
   label,
   register,
@@ -76,8 +111,8 @@ export const Email = ({
   name: string
   register: any
   errors: any
-}) => (
-  <Field>
+}) {
+  return <Field>
     {label && (
       <Label htmlFor={name} v="form" state={errors[name] && 'err'}>
         {label}
@@ -94,9 +129,9 @@ export const Email = ({
       <p className="text-xs text-red-500">{errors[name]?.message}</p>
     )}
   </Field>
-)
+}
 
-export const Password = ({
+export function Password({
   name,
   label,
   register,
@@ -106,8 +141,8 @@ export const Password = ({
   name: string
   register: any
   errors: any
-}) => (
-  <Field>
+}) {
+  return <Field>
     {label && (
       <Label htmlFor={name} v="form" state={errors[name] && 'err'}>
         {label}
@@ -125,4 +160,4 @@ export const Password = ({
       <p className="text-xs text-red-500">{errors[name]?.message}</p>
     )}
   </Field>
-)
+}

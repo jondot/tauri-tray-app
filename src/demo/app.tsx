@@ -3,13 +3,17 @@ import { invoke } from '@tauri-apps/api'
 import { listen } from '@tauri-apps/api/event'
 
 import { Link, Outlet } from 'react-router-dom'
-import { Button } from '../components/ui/button'
-import { SkeletonText } from '../components/ui/skeleton'
-import { Toaster } from '../components/ui/toast/toaster'
+import { MoonIcon, SunIcon } from 'lucide-react'
+import { SkeletonText } from '../components/xui/skeleton'
+import { Toaster } from '@/components/ui/toaster'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { useDark } from '@/components/xui/use-dark'
 
 function App() {
   const [msg, setMsg] = useState()
   const [rsEvent, setRsEvent] = useState()
+
+  const { toggleDark, isDark } = useDark()
 
   // Note: setInterval is firing off a promise and does not wait for it to resolve.
   // depending on what you want to get done, it may be smarter to use a different
@@ -17,7 +21,7 @@ function App() {
   // from time to time.
   useEffect(() => {
     const interval = setInterval(() => {
-      invoke('interval_action', { msg: `interval msg` }).then((s: any) => {
+      invoke('interval_action', { msg: 'interval msg' }).then((s: any) => {
         setMsg(s)
       })
     }, 5000)
@@ -31,12 +35,16 @@ function App() {
   return (
     <div>
       <div className="p-4">
-        <Button as={Link} to="/">
-          Home
-        </Button>
-        <Button as={Link} to="actions">
-          Actions
-        </Button>
+        <div className="flex space-x-1">
+          <Link className={buttonVariants({ variant: 'outline' })} to="/">
+            Home
+          </Link>
+          <Link className={buttonVariants({ variant: 'outline' })} to="actions">
+            Actions
+          </Link>
+          <Button variant="ghost" onClick={toggleDark}>{isDark ? <SunIcon className="h-5 w-5 text-foreground"/> : <MoonIcon className="h-5 w-5 text-foreground"/>}</Button>
+        </div>
+
         <div>
           <div>
             <div>js&rarr;rs (every 5s)</div>

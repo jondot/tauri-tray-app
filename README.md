@@ -5,7 +5,8 @@ This template should help get you started developing a Tauri tray app with an ap
 **Components**:
 
 * **Rust**: tauri, chrono, reqwest, anyhow
-* **Javascript**: typescript, eslint, Vite, React, tailwind, storybook, Zustand fully configured.
+* **Javascript**: typescript, eslint, Vite, React, storybook, Zustand fully configured.
+* **Styles**: tailwind, tw-classed and [shadcn/ui](https://ui.shadcn.com)
 
 ## Quick start
 
@@ -34,7 +35,9 @@ $ mm sb
     1. A way to submit form data to Rust and get back a response, like working with a server
 
 
-* Styling: tailwind + tooling to ease some verbosity and make it closer to classic js styling libs (`tw-classed`), see [Button](src/components/ui/button/index.tsx)
+* UI: 
+  * `components/ui` -  components mirror from [ui.shadcn.com](https://ui.shadcn.com)
+  * `components/xui` - extended UI components building on top of `shadcn/ui`, with tooling to ease some verbosity and make it closer to classic js styling libs (`tw-classed`), see [Button](src/components/xui/button/index.tsx)
 
 
 ## Additional components
@@ -43,7 +46,7 @@ $ mm sb
 * Routing: `react-router-dom` [src/main.tsx](src/main.tsx)
 * Storybook: [src/stories/](src/stories/) (task: `mm sb`)
 * Styling: `tailwind` [tailwind.config.ts](tailwind.config.js) + `index.css` [src/index.css](src/index.css)
-* Components: `components/ui` [components/ui](src/components/ui), use [shadcn/ui](https://ui.shadcn.com/) for inspiration and more components
+* Components: `components/ui` [components/ui](src/components/ui) (and `components/xui`), use [shadcn/ui](https://ui.shadcn.com/) for inspiration reviewing components use
 * Lints: `eslint` + `stylomatic` [.eslintrc.js](.eslintrc.js)
 
 # License

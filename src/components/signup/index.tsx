@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { useForm } from '../../hooks/use-form'
-import { Email, InputField, Password } from '../ui/forms'
-import { ProgressButton } from '../ui/button'
+import { Email, InputField, Password } from '../xui/forms'
+import { ProgressButton } from '../xui/button'
 
 export const emailSchema = z.string().min(1, { message: 'email is required' })
 export const loginSchema = z.object({
@@ -19,7 +19,7 @@ interface SignupFormProps {
   onSubmit: (arg0: any) => void
 }
 
-export const SignupForm = ({ onSubmit }: SignupFormProps) => {
+export function SignupForm({ onSubmit }: SignupFormProps) {
   const {
     register,
     handleSubmit,
@@ -54,7 +54,6 @@ export const SignupForm = ({ onSubmit }: SignupFormProps) => {
 
         <ProgressButton
           inProgress={isSubmitting}
-          variant="filled"
           type="submit"
           className="w-full"
         >

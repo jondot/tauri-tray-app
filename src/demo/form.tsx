@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import { invoke } from '@tauri-apps/api'
-import { useToast } from '../components/ui/toast/use-toast'
 import { SignupForm } from '../components/signup'
+import { useToast } from '@/components/ui/use-toast'
 
-const Form = () => {
+function Form() {
   const { toast } = useToast()
   return (
     <SignupForm
