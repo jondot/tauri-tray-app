@@ -1,6 +1,6 @@
 import { classed } from '@tw-classed/react'
 import * as LabelPrimitive from '@radix-ui/react-label'
-import { cn } from '../utils'
+import { cn } from '@/lib/utils'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 
@@ -9,7 +9,7 @@ export const Label = classed(
   'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
   {
     variants: {
-      v: {
+      variant: {
         normal: 'text-foreground',
         form: 'text-muted-foreground',
       },
@@ -19,10 +19,10 @@ export const Label = classed(
       },
     },
     defaultVariants: {
-      v: 'normal',
+      variant: 'normal',
       state: 'normal',
     },
-  },
+  }
 )
 
 export function Field({
@@ -52,7 +52,7 @@ export function TextAreaField({
 }) {
   return <Field className={className}>
     {label && (
-      <Label htmlFor={name} v="form" state={errors[name] && 'err'}>
+      <Label htmlFor={name} variant="form" state={errors[name] && 'err'}>
         {label}
       </Label>
     )}
@@ -85,7 +85,7 @@ export function InputField({
 }) {
   return <Field className={className}>
     {label && (
-      <Label htmlFor={name} v="form" state={errors[name] && 'err'}>
+      <Label htmlFor={name} variant="form" state={errors[name] && 'err'}>
         {label}
       </Label>
     )}
@@ -114,7 +114,7 @@ export function Email({
 }) {
   return <Field>
     {label && (
-      <Label htmlFor={name} v="form" state={errors[name] && 'err'}>
+      <Label htmlFor={name} variant="form" state={errors[name] && 'err'}>
         {label}
       </Label>
     )}
@@ -144,7 +144,7 @@ export function Password({
 }) {
   return <Field>
     {label && (
-      <Label htmlFor={name} v="form" state={errors[name] && 'err'}>
+      <Label htmlFor={name} variant="form" state={errors[name] && 'err'}>
         {label}
       </Label>
     )}
